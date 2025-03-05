@@ -5,7 +5,7 @@ import torch.optim as optim
 # Define the Perceptron model for the OR gate
 class Perceptron(nn.Module):
     def __init__(self, input_size):
-        super(Perceptron, self).__init__()
+        super().__init__()
         self.linear = nn.Linear(input_size, 1)  # Single-layer perceptron
 
     def forward(self, x):
@@ -15,6 +15,7 @@ class Perceptron(nn.Module):
 # Initialize the model, loss function, and optimizer
 input_size = 2  # OR gate has two input features
 model = Perceptron(input_size)
+
 criterion = nn.BCELoss()  # Binary cross-entropy loss
 optimizer = optim.SGD(model.parameters(), lr=0.1)  # Stochastic Gradient Descent optimizer
 
